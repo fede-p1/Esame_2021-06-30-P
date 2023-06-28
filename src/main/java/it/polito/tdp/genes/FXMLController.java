@@ -49,7 +49,7 @@ public class FXMLController {
     	this.txtResult.appendText('\n' + "Sequenza più lunga: \n\n");
     	
     	for (String s : sequenza) {
-    		txtResult.appendText(s + " -> ");
+    		txtResult.appendText(s + " -> " +'\n');
     	}
     	
     	txtResult.appendText("Tot: " + model.getPesoTot(sequenza));

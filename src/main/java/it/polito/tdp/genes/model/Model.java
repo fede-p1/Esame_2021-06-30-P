@@ -76,16 +76,25 @@ public class Model {
 	
 	private void ricorsiva(DepthFirstIterator<String,DefaultWeightedEdge> dfi,List<String> parziale) {
 		
-		if (getPesoTot(parziale) > pesoMax) {
+		if (parziale.size() > 1 && getPesoTot(parziale) > pesoMax) {
 			pesoMax = getPesoTot(parziale);
 			soluzione = new ArrayList<>(parziale);
 		}
 		
 		while(dfi.hasNext()) {
 			String next = dfi.next();
-			parziale.add(next);
-			ricorsiva(dfi,parziale);
-			parziale.remove(parziale.size()-1);
+			if (parziale.size() == 0) {
+				parziale.add(next);
+				ricorsiva(dfi,parziale);
+				parziale.remove(parziale.size()-1);
+			}
+			else if (graph.containsEdge(next, parziale.get(parziale.size()-1))) {
+				parziale.add(next);
+				ricorsiva(dfi,parziale);
+				parziale.remove(parziale.size()-1);
+			}
+			else
+				return;
 		}
 		
 	}
