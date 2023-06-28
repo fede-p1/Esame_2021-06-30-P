@@ -2,9 +2,12 @@ package it.polito.tdp.genes.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
+import it.polito.tdp.genes.model.Arco;
 
 public class DBConnect {
 	
@@ -17,7 +20,7 @@ public class DBConnect {
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(jdbcURL);
 			config.setUsername("root");
-			config.setPassword("root");
+			config.setPassword("MariaDB2023");
 			
 			// configurazione MySQL
 			config.addDataSourceProperty("cachePrepStmts", "true");
@@ -37,4 +40,7 @@ public class DBConnect {
 		}
 	}
 
+	
+	
+	
 }
